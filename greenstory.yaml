@@ -1,0 +1,3554 @@
+swagger: '2.0'
+info:
+  description: 'This is an API documentation for Green Story Admin App (Dev Environment). To test out any API , you need to provide the Bearer Token first'
+  version: '1.0.0'
+  title: 'Green Story Admin App'
+  x-logo:
+    url: 'https://greenstory.ca/wp-content/uploads/2019/02/Logo_Vertical.png'
+    backgroundColor: 'mintcream'
+
+host: 'admin-backend-dev.greenstory.ca'
+basePath: '/api'
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+security:
+  - Bearer: []
+
+tags:
+  - name: 'Company'
+    description: 'API to get/update Company details'
+    externalDocs:
+      description: 'URL'
+      url: 'https://admin-dev.greenstory.ca/api/company'
+
+  - name: 'Product'
+    description: 'API to get/update Prodcut details'
+    externalDocs:
+      description: 'URL'
+      url: 'https://admin-dev.greenstory.ca/api/product/list'
+
+  - name: 'Product Configuration Set'
+    description: 'API to get/update Product Configuration Set details'
+    externalDocs:
+      description: 'URL'
+      url: 'https://admin-dev.greenstory.ca/api/product-configuration-set'
+
+  - name: 'Sustainability Attribute Set'
+    description: 'API to get/update Sustainability Attribute Set details'
+    externalDocs:
+      description: 'URL'
+      url: 'https://admin-backend-dev.greenstory.ca/api/sustainability-attribute-set'
+
+  - name: 'Metrics'
+    description: 'API to get/update Global Setting-Metrics'
+    externalDocs:
+      description: 'URL'
+      url: 'https://admin-backend-dev.greenstory.ca/api/global/metric'
+
+  - name: 'Languages'
+    description: 'API to get/update Global Setting-Languages'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/global/language'
+
+  - name: 'Metric-types'
+    description: 'API to get/update Global Constant-Metric-type'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/global/metric-type'
+
+  - name: 'Attributes'
+    description: 'API to get/update Global Constant-Attributes'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca'
+
+  - name: 'Widgets'
+    description: 'API to get/update Global Constant-widgets'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/api/global/widget'
+
+  - name: 'campaign'
+    description: 'API to get/update campaign'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/api/campaign'
+
+  - name: 'impacts-map'
+    description: 'API to get/update impacts-map'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/api/impacts-mapping'
+
+  - name: 'custom-metrics'
+    description: 'API to get/update custom-metrics'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/api/custom-metrics'
+
+  - name: 'widget-configs'
+    description: 'API to get/update widget-configs'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/api/custom-metrics'
+
+  - name: 'widget-types'
+    description: 'API to get/update widget-types'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/widget-types'
+
+  - name: 'widget-themes'
+    description: 'API to get/update widget-themes'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/widget-themes'
+
+  - name: 'widget-component'
+    description: 'API to get/update widget-component'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/widget-component'
+
+  - name: 'company-profile'
+    description: 'API to get/update company-profile'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/widget-config-question'
+
+  - name: 'company-setup'
+    description: 'API to get/update company-setup'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/company-setup'
+
+  - name: 'product-id-mapping'
+    description: 'API to get/update product-id-mapping'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/product-id-mapping'
+
+  - name: 'qrcode'
+    description: 'API to get/update qrcode'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/api/qrcode'
+
+  - name: 'unit_of_measurement'
+    description: 'API to get/update unit_of_measurement'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/unit_of_measurement'
+
+  - name: 'enum'
+    description: 'API to get/update enum'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/enum'
+
+  - name: 'widget-config-question'
+    description: 'API to get/update widget-config-question'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/widget-config-question'
+
+  - name: 'impact_factor_matrix'
+    description: 'API to get/update impact_factor_matrix'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/api/impacts-factors'
+
+  - name: 'sustainability-attribute-visibility-grouping'
+    description: 'API to get/update sustainability-attribute-visibility-grouping'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/sustainability-attribute-visibility-grouping'
+
+  - name: 'blend'
+    description: 'API to get/update blend'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/api/blend'
+
+  - name: 'db-materialized-views'
+    description: 'API to get/update db-materialized-views'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-dev.greenstory.ca/global/db-materialized-views'
+
+  - name: 'file-upload'
+    description: 'API to get/update file-upload'
+    externalDocs:
+      description: 'Find out more'
+      url: 'https://admin-backend-dev.greenstory.ca/api/file-upload'
+
+schemes:
+  - 'https'
+
+paths:
+  /global/languages:
+    post:
+      tags:
+        - 'Languages'
+      summary: 'Add a single Language'
+      description: ''
+      operationId: '12'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'languages object that needs to be added'
+          required: true
+          schema:
+            $ref: '#/definitions/languages'
+      responses:
+        '200':
+          description: 'Access denied. No token provided.'
+          schema:
+            $ref: '#/definitions/languages'
+        '401':
+          description: 'Access denied. No token provided.'
+        '400':
+          description: 'Invalid input params'
+
+    get:
+      tags:
+        - 'Languages'
+      summary: 'Get all Languages'
+      description: ''
+      produces:
+        - 'application/json'
+
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/languages'
+        '401':
+          description: 'Access denied. No token provided.'
+
+  /global/languages/{id}:
+    get:
+      tags:
+        - 'Languages'
+      summary: 'Get a single Language'
+      description: ''
+      operationId: 'getLanguagesById'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of languages to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/languages'
+        '401':
+          description: 'Access denied. No token provided.'
+    delete:
+      tags:
+        - 'Languages'
+      summary: 'Deletes a Language'
+      description: ''
+      operationId: 'deleteLanguages'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Languages id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successfully deleted languange '
+          schema:
+            $ref: '#/definitions/languages'
+        '401':
+          description: 'Access denied. No token provided.'
+
+  /global/metrics:
+    post:
+      tags:
+        - 'Metrics'
+      summary: 'Create a Metric'
+      description: ''
+      consumes:
+        - 'application/json'
+
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Metrics object that needs to be added'
+          required: true
+          schema:
+            $ref: '#/definitions/global-metrics'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/global-metrics'
+        '500':
+          description: 'null value in column "metric_name" violates not-null constraint'
+    get:
+      tags:
+        - 'Metrics'
+      summary: 'Get a list of all Metrics'
+      description: ''
+      operationId: 'getMetrics'
+      consumes:
+        - 'application/json'
+
+      produces:
+        - 'application/json'
+
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/global-metrics'
+        '401':
+          description: 'Access denied. No token provided.'
+
+  /global/metrics/{id}:
+    get:
+      tags:
+        - 'Metrics'
+      summary: 'Get a single Metric'
+      description: ''
+      operationId: 'getMetricsId'
+      consumes:
+        - 'application/json'
+
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'metrics object that needs to be added'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/global-metrics'
+        '401':
+          description: 'Access denied. No token provided.'
+    put:
+      tags:
+        - 'Metrics'
+      summary: 'Update a single Metric'
+      description: ''
+      operationId: 'putMetrics'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'path'
+          name: 'id'
+          description: 'Metrics object that needs to be updated'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/global-metrics'
+        '401':
+          description: 'Access denied. No token provided.'
+    delete:
+      tags:
+        - 'Metrics'
+      summary: 'Deletes a single Metric'
+      description: ''
+      operationId: 'deleteMetrics'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Metrics id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successfully deleted metric '
+          schema:
+            $ref: '#/definitions/global-metrics'
+        '401':
+          description: 'Access denied. No token provided.'
+
+  /product:
+    post:
+      tags:
+        - 'Product'
+      summary: 'Create a single product'
+      description: ''
+      operationId: '3'
+      parameters:
+        - in: body
+          name: product
+          description: The product to create.
+          schema:
+            $ref: '#/definitions/products_list_Post'
+
+      responses:
+        '201':
+          description: 'Response Body'
+          schema:
+            $ref: '#/definitions/products_list_Post'
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/products_list'
+        '401':
+          description: 'Access denied. No token provided.'
+
+  /product/company/{company_id}:
+    get:
+      tags:
+        - 'Product'
+      summary: 'Get a list of all product within a company'
+      description: ''
+      operationId: '4'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          description: 'ID of company'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/products_list'
+        '401':
+          description: 'Access denied. No token provided.'
+  /product/{id}:
+    get:
+      tags:
+        - 'Product'
+      summary: 'Get a single product'
+      description: ''
+      operationId: '5'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of product to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/products_list'
+        '401':
+          description: 'Access denied. No token provided.'
+    put:
+      tags:
+        - 'Product'
+      summary: 'Update a single product'
+      description: ''
+      operationId: '6'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: body
+          name: product
+          description: The product to update.
+          schema:
+            $ref: '#/definitions/products_list'
+        - name: 'id'
+          in: 'path'
+          description: 'ID of product to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/products_list'
+        '401':
+          description: 'Access denied. No token provided.'
+
+  /company:
+    get:
+      tags:
+        - 'Company'
+      summary: 'Get list of all company'
+      description: ''
+      operationId: 'GetCompanies'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/company'
+        '401':
+          description: 'Access denied. No token provided.'
+    post:
+      tags:
+        - 'Company'
+      summary: 'Create a new company'
+      description: ''
+      operationId: 'CreateCompany'
+      parameters:
+        - in: body
+          name: company
+          description: The company to create.
+          schema:
+            $ref: '#/definitions/company_post'
+
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/company'
+        '201':
+          description: 'Response Body'
+        '400':
+          description: 'Input parameter is not defined.'
+  /company/{company_id}:
+    get:
+      tags:
+        - 'Company'
+      summary: 'Get a single Company'
+      description: ''
+      operationId: 'GetSingleCompany'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/company'
+        '401':
+          description: 'Access denied. No token provided.'
+    put:
+      tags:
+        - 'Company'
+      summary: 'Update a single company'
+      description: ''
+      operationId: 'UpdateSingleCompany'
+      parameters:
+        - in: body
+          name: company
+          description: The company to create.
+          schema:
+            $ref: '#/definitions/company_post'
+        - name: 'company_id'
+          in: 'path'
+          description: 'Company id to update'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/company'
+        '401':
+          description: 'Access denied. No token provided.'
+        '400':
+          description: 'Invalid Authorization Key passed.Please add a valid valid Authorization Key'
+    delete:
+      tags:
+        - 'Company'
+      summary: 'Delete a single company'
+      description: ''
+      operationId: 'DeleteSingleCompany'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successfully deleted Company'
+          schema:
+            $ref: '#/definitions/company'
+        '401':
+          description: 'Access denied. No token provided.'
+        '500':
+          description: 'column "id" does not exist'
+
+  /product-configuration-set:
+    post:
+      tags:
+        - 'Product Configuration Set'
+      summary: 'Create a product-configuration-set'
+      description: ''
+      operationId: '7'
+      parameters:
+        - in: body
+          name: product-configuration-set
+          description: The product-configuration-set to create.
+          schema:
+            $ref: '#/definitions/product-configuration-set'
+      responses:
+        '201':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product-configuration-set'
+        '401':
+          description: 'Access denied. No token provided.'
+  /product-configuration-set/{id}:
+    get:
+      tags:
+        - 'Product Configuration Set'
+      summary: 'Get a single product-configuration-set'
+      description: ''
+      operationId: '8'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Product-configuration-set id'
+          required: true
+          type: integer
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product-configuration-set'
+
+    delete:
+      tags:
+        - 'Product Configuration Set'
+      summary: 'Delete a single product-configuration-set'
+      description: ''
+      operationId: '9'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Product-configuration-set id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successfully deleted product configuration set with id '
+          schema:
+            $ref: '#/definitions/product-configuration-set'
+        '404':
+          description: 'No record found for the id: in product configuration set table'
+    put:
+      tags:
+        - 'Product Configuration Set'
+      summary: 'Update a single product-configuration-set'
+      description: ''
+      operationId: '10'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Product-configuration-set id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+        - in: body
+          name: product-configuration-set
+          description: The product-configuration-set to create.
+          schema:
+            $ref: '#/definitions/product-configuration-set'
+
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product-configuration-set'
+        '404':
+          description: 'No record found for the id: in product configuration set table'
+  /product-configuration-set/company/{company_id}:
+    get:
+      tags:
+        - 'Product Configuration Set'
+      summary: 'Get a list of all product-configuration-set within a Company'
+      description: ''
+      operationId: '11'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product-configuration-set'
+        '401':
+          description: 'Access denied. No token provided.'
+
+  /sustainability-attribute-set/{id}:
+    get:
+      tags:
+        - 'Sustainability Attribute Set'
+      summary: 'Get all sustainability-attribute-set within a Company'
+      description: ''
+      operationId: '2'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/sustainability-attribute-set'
+        '401':
+          description: 'Access denied. No token provided.'
+        '500':
+          description: 'WHERE parameter "company_id" has invalid "undefined" value'
+        '404':
+          description: 'No Route Found'
+    put:
+      tags:
+        - 'Sustainability Attribute Set'
+      summary: 'Create or Update a sustainability-attribute-set'
+      description: ''
+      operationId: '13'
+
+      parameters:
+        - name: 'id'
+          in: 'path'
+          required: true
+          type: 'integer'
+          format: 'int64'
+        - in: body
+          name: sustainability-attribute-set
+          description: The sustainability-attribute-set to update.
+          schema:
+            $ref: '#/definitions/sustainability-attribute-set'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/sustainability-attribute-set'
+        '401':
+          description: 'Access denied. No token provided.'
+        '500':
+          description: 'WHERE parameter "company_id" has invalid "undefined" value'
+        '404':
+          description: 'No Route Found'
+    delete:
+      tags:
+        - 'Sustainability Attribute Set'
+      summary: 'Delete a sustainability-attribute-set'
+      description: ''
+      operationId: '14'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/sustainability-attribute-set'
+        '401':
+          description: 'Access denied. No token provided.'
+        '500':
+          description: 'WHERE parameter "company_id" has invalid "undefined" value'
+        '404':
+          description: 'No Route Found'
+  /sustainability-attribute-set/usage/{company_id}:
+    post:
+      tags:
+        - 'Sustainability Attribute Set'
+      summary: 'Check usage of sustainability-attribute-sets'
+      description: ''
+      operationId: '15'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/sustainability-attribute-set'
+        '400':
+          description: 'Please choose the level from part, product, company and order.'
+
+  /global/metric-types:
+    get:
+      tags:
+        - 'Metric-types'
+      summary: 'Get a list of all metric-type'
+      description: 'Get all Metric-types'
+      operationId: '16'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/metric-types'
+        '500':
+          description: 'relation "public.metric_types" does not exist'
+    post:
+      tags:
+        - 'Metric-types'
+      summary: 'Create a metric-types'
+      description: ''
+      operationId: '17'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/metric-types'
+        '500':
+          description: 'relation "public.metric_types" does not exist'
+  /global/metric-types/{id}:
+    get:
+      tags:
+        - 'Metric-types'
+      summary: 'Get a metric-types'
+      description: ''
+      operationId: '18'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of metric-types'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/metric-types'
+        '500':
+          description: 'relation "public.metric_types" does not exist'
+    delete:
+      tags:
+        - 'Metric-types'
+      summary: 'Deletes a Metric-types'
+      description: ''
+      operationId: '19'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'metric-types to be delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/metric-types'
+        '500':
+          description: 'relation "public.metric_types" does not exist'
+    put:
+      tags:
+        - 'Metric-types'
+      summary: 'Update a Metric-types'
+      description: ''
+      operationId: '20'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'metric-types id to be updated'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/metric-types'
+        '500':
+          description: 'relation "public.metric_types" does not exist'
+
+  /global/attributes:
+    get:
+      tags:
+        - 'Attributes'
+      summary: 'Get a list of all attributes'
+      description: 'This endpoints uses a get request to retrive all attributes'
+      operationId: '21'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/attributes'
+        '500':
+          description: 'relation "public.attributes" does not exist'
+    post:
+      tags:
+        - 'Attributes'
+      summary: 'Creates a attributes'
+      description: ''
+      operationId: '22'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/attributes'
+        '400':
+          description: 'Input parameter are not provided'
+  /global/attributes/{id}:
+    get:
+      tags:
+        - 'Attributes'
+      summary: 'Get a Attributes'
+      description: ''
+      operationId: '23'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of attribute'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/attributes'
+        '500':
+          description: 'relation "public.attributes" does not exist'
+    delete:
+      tags:
+        - 'Attributes'
+      summary: 'Deletes a Attributes'
+      description: 'This endpoints uses a delete request to delete a Attributes'
+      operationId: '24'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Attribute id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/attributes'
+        '500':
+          description: 'relation "public.attributes" does not exist'
+    put:
+      tags:
+        - 'Attributes'
+      summary: 'Update a Attributes'
+      description: ''
+      operationId: '25'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Attribute id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/attributes'
+        '500':
+          description: 'relation "public.attributes" does not exist'
+
+  /global/widgets:
+    get:
+      tags:
+        - 'Widgets'
+      summary: 'Get a list of all widget'
+      description: 'This endpoints uses a get request to retrive all widget'
+      operationId: '26'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widgets'
+        '500':
+          description: 'Query parameter is not defined'
+
+    post:
+      tags:
+        - 'Widgets'
+      summary: 'Create a widget'
+      description: ''
+      operationId: '27'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widgets'
+        '500':
+          description: 'Query parameter is not defined'
+  /global/widgets/{id}:
+    get:
+      tags:
+        - 'Widgets'
+      summary: 'Get a widget'
+      description: ''
+      operationId: '28'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID widget'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widgets'
+        '500':
+          description: 'Query parameter is not defined'
+    delete:
+      tags:
+        - 'Widgets'
+      summary: 'Deletes a widget'
+      description: 'This endpoints uses a delete request to delete a widget'
+      operationId: '29'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Widgets id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widgets'
+        '500':
+          description: 'Query parameter is not defined'
+    put:
+      tags:
+        - 'Widgets'
+      summary: 'Update a widget'
+      description: ''
+      operationId: '30'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Widgets id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widgets'
+        '500':
+          description: 'Query parameter is not defined'
+
+  /campaign:
+    post:
+      tags:
+        - 'campaign'
+      summary: 'Create a single campaign'
+      description: ''
+      operationId: '31'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          required: true
+          type: 'integer'
+          format: 'int64'
+        - in: body
+          name: campaign
+          description: The campaign to update.
+          schema:
+            $ref: '#/definitions/campaign'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/campaign'
+        '500':
+          description: 'invalid input syntax for integer: "NaN"'
+
+  /campaign/{id}:
+    get:
+      tags:
+        - 'campaign'
+      summary: 'Get a single campaign'
+      description: ''
+      operationId: '32'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Campaign ID'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/campaign'
+    delete:
+      tags:
+        - 'campaign'
+      summary: 'Deletes a single campaign'
+      description: 'This endpoints uses a delete request to delete a campaign'
+      operationId: '33'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Campaign id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successfully deleted campaign'
+          schema:
+            $ref: '#/definitions/campaign'
+        '404':
+          description: 'No record found for the id: in Campaign table'
+    put:
+      tags:
+        - 'campaign'
+      summary: 'Update a single campaign'
+      description: ''
+      operationId: '34'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'Campaign id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+        - in: body
+          name: campaign
+          description: The campaign to update.
+          schema:
+            $ref: '#/definitions/campaign'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/campaign'
+        '500':
+          description: 'invalid input syntax for integer: "NaN"'
+
+  /impacts-map:
+    post:
+      tags:
+        - 'impacts-map'
+      summary: 'Create a impacts-map'
+      description: ''
+      operationId: '35'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/impacts_mapping_list'
+        '400':
+          description: 'Please provide type in query parameter'
+  /impacts-map/{type}:
+    get:
+      tags:
+        - 'impacts-map'
+      summary: 'Get a single impacts-map'
+      description: ''
+      operationId: '36'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'type'
+          in: 'path'
+          description: 'Type can be Company'
+          required: true
+          type: 'string'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/impacts_mapping_list'
+        '400':
+          description: 'Please provide type in query parameter'
+    delete:
+      tags:
+        - 'impacts-map'
+      summary: 'Deletes a single impacts-map'
+      description: 'This endpoints uses a delete request to delete a impacts-map'
+      operationId: '37'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'type'
+          in: 'path'
+          description: 'impacts-map id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/impacts_mapping_list'
+        '400':
+          description: 'Please provide type in query parameter'
+    put:
+      tags:
+        - 'impacts-map'
+      summary: 'Update a single impacts-map'
+      description: ''
+      operationId: '38'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'type'
+          in: 'path'
+          description: 'impacts-map id'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/impacts_mapping_list'
+        '400':
+          description: 'Please provide type in query parameter'
+
+  /custom-metrics/{company_id}/{impact_map}:
+    get:
+      tags:
+        - 'custom-metrics'
+      summary: 'Get list of all custom-metrics'
+      description: 'This endpoints uses a get request to get all custom-metrics'
+      operationId: '39'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          description: 'Company ID'
+          required: true
+          type: 'integer'
+          format: 'int64'
+        - name: 'impact_map'
+          in: 'path'
+          description: 'Imapct mapping- can be Actuals or Equivalence'
+          required: true
+          type: 'string'
+
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/custom_metrics'
+    post:
+      tags:
+        - 'custom-metrics'
+      summary: 'Post list of all custom-metrics'
+      description: 'This endpoints uses a post request to post all custom-metrics'
+      operationId: '40'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          description: 'Company ID'
+          required: true
+          type: 'integer'
+          format: 'int64'
+        - name: 'impact_map'
+          in: 'path'
+          description: 'Imapct mapping- can be Actuals or Equivalence'
+          required: true
+          type: 'string'
+        - in: body
+          name: custom-metrics
+          description: The custom-metrics to update.
+          schema:
+            $ref: '#/definitions/custom_metrics'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/custom_metrics'
+        '500':
+          description: 'notNull Violation: actuals_customization.actuals_id cannot be null'
+    put:
+      tags:
+        - 'custom-metrics'
+      summary: 'Put a custom-metrics when id is selected'
+      description: 'This endpoints uses a put request to put all custom-metrics when Company Id is selected'
+      operationId: '41'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          description: 'Company ID'
+          required: true
+          type: 'integer'
+          format: 'int64'
+        - name: 'impact_map'
+          in: 'path'
+          description: 'Imapct mapping- can be Actuals or Equivalence'
+          required: true
+          type: 'string'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/custom_metrics'
+        '404':
+          description: 'No Route Found'
+    delete:
+      tags:
+        - 'custom-metrics'
+      summary: 'Delete a list of all custom-metrics after selecting Company Id'
+      description: 'This endpoints uses a delete request to delete all custom-metrics when Company Id is selected'
+      operationId: '42'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          description: 'Company ID'
+          required: true
+          type: 'integer'
+          format: 'int64'
+        - name: 'impact_map'
+          in: 'path'
+          description: 'Imapct mapping- can be Actuals or Equivalence'
+          required: true
+          type: 'string'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/custom_metrics'
+        '404':
+          description: 'No Route Found'
+
+  /widget-configs:
+    get:
+      tags:
+        - 'widget-configs'
+      summary: 'Get list of all widget-configs'
+      description: 'This endpoints uses a get request to get all widget-configs'
+      operationId: '43'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '404':
+          description: 'No Route Found'
+
+    post:
+      tags:
+        - 'widget-configs'
+      summary: 'Create a widget-configs'
+      description: 'This endpoints uses a post request to post all widget-configs'
+      operationId: '44'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '404':
+          description: 'No Route Found'
+  /widget-configs/{id}:
+    get:
+      tags:
+        - 'widget-configs'
+      summary: 'Get a list of all widget-configs after selecting Id'
+      description: 'This endpoints uses a get request to retrive all widget-configs when Id is selected'
+      operationId: '45'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'widget-configs'
+      summary: 'Put a widget-configs when id is selected'
+      description: 'This endpoints uses a put request to put all widget-configs when id is selected'
+      operationId: '46'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'widget-configs'
+      summary: 'Delete a list of all widget-configs after selecting Id'
+      description: 'This endpoints uses a delete request to delete all widget-configs when Id is selected'
+      operationId: '47'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /widget-types:
+    get:
+      tags:
+        - 'widget-types'
+      summary: 'Get list of all widget-types'
+      description: 'This endpoints uses a get request to get all widget-types'
+      operationId: '48'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-types'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'widget-types'
+      summary: 'Post list of all widget-types'
+      description: 'This endpoints uses a post request to post all widget-types'
+      operationId: '49'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-types'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /widget-types/{id}:
+    get:
+      tags:
+        - 'widget-types'
+      summary: 'Get a list of all widget-types after selecting Id'
+      description: 'This endpoints uses a get request to retrive all widget-types when Id is selected'
+      operationId: '50'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-types'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'widget-types'
+      summary: 'Put a widget-types when id is selected'
+      description: 'This endpoints uses a put request to put all widget-types when id is selected'
+      operationId: '51'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'widget-types'
+      summary: 'Delete a list of all widget-types after selecting Id'
+      description: 'This endpoints uses a delete request to delete all widget-types when Id is selected'
+      operationId: '52'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-types'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /widget-themes:
+    get:
+      tags:
+        - 'widget-themes'
+      summary: 'Get list of all widget-themes'
+      description: 'This endpoints uses a get request to get all widget-themes'
+      operationId: '53'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-themes'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'widget-themes'
+      summary: 'Post list of all widget-themes'
+      description: 'This endpoints uses a post request to post all widget-themes'
+      operationId: '54'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-themes'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /widget-themes/{id}:
+    get:
+      tags:
+        - 'widget-themes'
+      summary: 'Get a list of all widget-themes after selecting Id'
+      description: 'This endpoints uses a get request to retrive all widget-themes when Id is selected'
+      operationId: '55'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-themes'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'widget-themes'
+      summary: 'Put a widget-themes when id is selected'
+      description: 'This endpoints uses a put request to put all widget-themes when id is selected'
+      operationId: '56'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'widget-themes'
+      summary: 'Delete a list of all widget-themes after selecting Id'
+      description: 'This endpoints uses a delete request to delete all widget-themes when Id is selected'
+      operationId: '57'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-themes'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /widget-themes/widgetType/{id}:
+    get:
+      tags:
+        - 'widget-themes'
+      summary: 'Get a list of all widget-themes after selecting Id'
+      description: 'This endpoints uses a get request to retrive all widget-themes when Id is selected'
+      operationId: '58'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-themes'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /widget-component:
+    get:
+      tags:
+        - 'widget-component'
+      summary: 'Get list of all widget-component'
+      description: 'This endpoints uses a get request to get all widget-component'
+      operationId: '59'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-component'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'widget-component'
+      summary: 'Post list of all widget-component'
+      description: 'This endpoints uses a post request to post all widget-component'
+      operationId: '60'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-component'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /widget-component/{id}:
+    get:
+      tags:
+        - 'widget-component'
+      summary: 'Get a list of all widget-component after selecting Id'
+      description: 'This endpoints uses a get request to retrive all widget-component when Id is selected'
+      operationId: '61'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-component'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'widget-component'
+      summary: 'Put a widget-component when id is selected'
+      description: 'This endpoints uses a put request to put all widget-component when id is selected'
+      operationId: '62'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'widget-component'
+      summary: 'Delete a list of all widget-component after selecting Id'
+      description: 'This endpoints uses a delete request to delete all widget-component when Id is selected'
+      operationId: '63'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-component'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /widget-component/widgetType/{id}:
+    get:
+      tags:
+        - 'widget-component'
+      summary: 'Get a list of all widget-component after selecting Id'
+      description: 'This endpoints uses a get request to retrive all widget-component when Id is selected'
+      operationId: '64'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget-component'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /company-profile:
+    post:
+      tags:
+        - 'company-profile'
+      summary: 'Post list of all company-profile'
+      description: 'This endpoints uses a post request to post all company-profile'
+      operationId: '65'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /company-profile/{id}:
+    get:
+      tags:
+        - 'company-profile'
+      summary: 'Get a list of all company-profile after selecting Id'
+      description: 'This endpoints uses a get request to retrive all company-profile when Id is selected'
+      operationId: '66'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'company-profile'
+      summary: 'Put a company-profile when id is selected'
+      description: 'This endpoints uses a put request to put all company-profile when id is selected'
+      operationId: '67'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /company-setup:
+    post:
+      tags:
+        - 'company-setup'
+      summary: 'Post list of all company-setup'
+      description: 'This endpoints uses a post request to post all company-setup'
+      operationId: '68'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/company-setup'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    get:
+      tags:
+        - 'company-setup'
+      summary: 'Get list of all company-setup'
+      description: 'This endpoints uses a get request to get all company-setup'
+      operationId: '69'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/company-setup'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /company-setup/{id}:
+    get:
+      tags:
+        - 'company-setup'
+      summary: 'Get a list of all company-setup after selecting Id'
+      description: 'This endpoints uses a get request to retrive all company-setup when Id is selected'
+      operationId: '70'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/company-setup'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'company-setup'
+      summary: 'Put a company-setup when id is selected'
+      description: 'This endpoints uses a put request to put all company-setup when id is selected'
+      operationId: '71'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'company-setup'
+      summary: 'Delete a list of all company-setup after selecting Id'
+      description: 'This endpoints uses a delete request to delete all company-setup when Id is selected'
+      operationId: '72'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/company-setup'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /company-setup/complete/{id}:
+    put:
+      tags:
+        - 'company-setup'
+      summary: 'Put a company-setup when id is selected'
+      description: 'This endpoints uses a put request to put all company-setup when id is selected'
+      operationId: '73'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /product-id-mapping:
+    post:
+      tags:
+        - 'product-id-mapping'
+      summary: 'Post list of all product-id-mapping'
+      description: 'This endpoints uses a post request to post all product-id-mapping'
+      operationId: '74'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product_mapping'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /product-id-mapping/{company_id}:
+    get:
+      tags:
+        - 'product-id-mapping'
+      summary: 'Get a list of all product-id-mapping after selecting Company Id'
+      description: 'This endpoints uses a get request to retrive all product-id-mapping when Company Id is selected'
+      operationId: '75'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product_mapping'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /product-id-mapping/external_product/{ext_product_id}:
+    get:
+      tags:
+        - 'product-id-mapping'
+      summary: 'Get a list of all product-id-mapping after selecting ext_product_id'
+      description: 'This endpoints uses a get request to retrive all product-id-mapping when ext_product_id is selected'
+      operationId: '76'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'ext_product_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product_mapping'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+    put:
+      tags:
+        - 'product-id-mapping'
+      summary: 'Put a ext_product_id when id is selected'
+      description: 'This endpoints uses a put request to put all ext_product_id when id is selected'
+      operationId: '77'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'ext_product_id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'product-id-mapping'
+      summary: 'Delete a list of all ext_product_id after selecting Id'
+      description: 'This endpoints uses a delete request to delete all ext_product_id when Id is selected'
+      operationId: '78'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'ext_product_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product_mapping'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /qrcode/{company_id}:
+    get:
+      tags:
+        - 'qrcode'
+      summary: 'Get a list of all qrcode after selecting company_id'
+      description: 'This endpoints uses a get request to retrive all qrcode when company_d is selected'
+      operationId: '79'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /unit_of_measurement:
+    get:
+      tags:
+        - 'unit_of_measurement'
+      summary: 'Get list of all unit_of_measurement'
+      description: 'This endpoints uses a get request to get all unit_of_measurement'
+      operationId: '80'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/unit_of_measurement'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'unit_of_measurement'
+      summary: 'Post list of all unit_of_measurement'
+      description: 'This endpoints uses a post request to post all unit_of_measurement'
+      operationId: '81'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/unit_of_measurement'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /unit_of_measurement/{uom_id}:
+    get:
+      tags:
+        - 'unit_of_measurement'
+      summary: 'Get a list of all unit_of_measurement after selecting uom_id'
+      description: 'This endpoints uses a get request to retrive all unit_of_measurement when uom_id is selected'
+      operationId: '82'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'uom_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/unit_of_measurement'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    patch:
+      tags:
+        - 'unit_of_measurement'
+      summary: 'Patch a unit_of_measurement when uom_id is selected'
+      description: 'This endpoints uses a patch request to patch all unit_of_measurement when uom_id is selected'
+      operationId: '83'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'uom_id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'unit_of_measurement'
+      summary: 'Delete a list of all unit_of_measurement after selecting uom_id'
+      description: 'This endpoints uses a delete request to delete all unit_of_measurement when uom_id is selected'
+      operationId: '84'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'uom_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/unit_of_measurement'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /enum:
+    get:
+      tags:
+        - 'enum'
+      summary: 'Get list of all enum'
+      description: 'This endpoints uses a get request to get all enum'
+      operationId: '85'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/enum'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'enum'
+      summary: 'Post list of all enum'
+      description: 'This endpoints uses a post request to post all enum'
+      operationId: '86'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/enum'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /enum/{code}:
+    patch:
+      tags:
+        - 'enum'
+      summary: 'Patch a enum when code is selected'
+      description: 'This endpoints uses a patch request to patch all enum when code is selected'
+      operationId: '87'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'code'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'enum'
+      summary: 'Delete a list of all enum after selecting code'
+      description: 'This endpoints uses a delete request to delete all enum when code is selected'
+      operationId: '88'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'code'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/enum'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /widget-config-question:
+    get:
+      tags:
+        - 'widget-config-question'
+      summary: 'Get list of all widget-config-question'
+      description: 'This endpoints uses a get request to get all widget-config-question'
+      operationId: '89'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget_config_question'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'widget-config-question'
+      summary: 'Post list of all widget-config-question'
+      description: 'This endpoints uses a post request to post all widget-config-question'
+      operationId: '90'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget_config_question'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /widget-config-question/{question_id}:
+    get:
+      tags:
+        - 'widget-config-question'
+      summary: 'Get a list of all widget-config-question after selecting question_id'
+      description: 'This endpoints uses a get request to retrive all widget-config-question when question_id is selected'
+      operationId: '91'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'question_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/widget_config_question'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'widget-config-question'
+      summary: 'Deletes a widget-config-question when question_id is selected'
+      description: 'This endpoints uses a delete request to delete all widget-config-question when question_id is selected'
+      operationId: '92'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'question_id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'widget-config-question'
+      summary: 'Put a widget-config-question when question_id is selected'
+      description: 'This endpoints uses a put request to put all widget-config-question when question_id is selected'
+      operationId: '93'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'question_id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /impact_factor_matrix:
+    get:
+      tags:
+        - 'impact_factor_matrix'
+      summary: 'Get list of all impact_factor_matrix'
+      description: 'This endpoints uses a get request to get all impact_factor_matrix'
+      operationId: '94'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/impact_factor_matrix'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'impact_factor_matrix'
+      summary: 'Post list of all impact_factor_matrix'
+      description: 'This endpoints uses a post request to post all impact_factor_matrix'
+      operationId: '95'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/impact_factor_matrix'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /impact_factor_matrix/{ifm_id}:
+    get:
+      tags:
+        - 'impact_factor_matrix'
+      summary: 'Get a list of all impact_factor_matrix after selecting ifm_id'
+      description: 'This endpoints uses a get request to retrive all impact_factor_matrix when ifm_id is selected'
+      operationId: '96'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'ifm_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/impact_factor_matrix'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /sustainability-attribute-visibility-grouping:
+    get:
+      tags:
+        - 'sustainability-attribute-visibility-grouping'
+      summary: 'Get list of all sustainability-attribute-visibility-grouping'
+      description: 'This endpoints uses a get request to get all sustainability-attribute-visibility-grouping'
+      operationId: '97'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'sustainability-attribute-visibility-grouping'
+      summary: 'Put list of all sustainability-attribute-visibility-grouping'
+      description: 'This endpoints uses a put request to put all sustainability-attribute-visibility-grouping'
+      operationId: '98'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'sustainability-attribute-visibility-grouping'
+      summary: 'Delete list of all sustainability-attribute-visibility-grouping'
+      description: 'This endpoints uses a delete request to delete all sustainability-attribute-visibility-grouping'
+      operationId: '99'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /blend:
+    get:
+      tags:
+        - 'blend'
+      summary: 'Get list of all blend'
+      description: 'This endpoints uses a get request to get all blend'
+      operationId: '100'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/blend'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'blend'
+      summary: 'Post list of all blend'
+      description: 'This endpoints uses a post request to post all blend'
+      operationId: '101'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/blend'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /blend/{id}:
+    get:
+      tags:
+        - 'blend'
+      summary: 'Get a list of all blend after selecting id'
+      description: 'This endpoints uses a get request to retrive all blend when id is selected'
+      operationId: '102'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/blend'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'blend'
+      summary: 'Deletes a blend when id is selected'
+      description: 'This endpoints uses a delete request to delete all blend when id is selected'
+      operationId: '103'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    put:
+      tags:
+        - 'blend'
+      summary: 'Put a blend when id is selected'
+      description: 'This endpoints uses a put request to put all blend when id is selected'
+      operationId: '104'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'api_key'
+          in: 'header'
+          required: false
+          type: 'string'
+        - name: 'id'
+          in: 'path'
+          description: 'Pet id to delete'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /blend/company/{company_id}:
+    get:
+      tags:
+        - 'blend'
+      summary: 'Get a list of all blend after selecting company_id'
+      description: 'This endpoints uses a get request to retrive all blend when company_id is selected'
+      operationId: '105'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'company_id'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/blend'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /db-materialized-views/{view_name}:
+    get:
+      tags:
+        - 'db-materialized-views'
+      summary: 'Get a list of all db-materialized-views after selecting view_name'
+      description: 'This endpoints uses a get request to retrive all db-materialized-views when view_name is selected'
+      operationId: '106'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'view_name'
+          in: 'path'
+          description: 'ID of pet to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+  /file-upload:
+    get:
+      tags:
+        - 'file-upload'
+      summary: 'Get list of all file-upload'
+      description: 'This endpoints uses a get request to get all file-upload'
+      operationId: '107'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    post:
+      tags:
+        - 'file-upload'
+      summary: 'Post list of all file-upload'
+      description: 'This endpoints uses a post request to post all file-upload'
+      operationId: '108'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+    delete:
+      tags:
+        - 'file-upload'
+      summary: 'Deletes a file-upload'
+      description: 'This endpoints uses a delete request to delete all file-upload'
+      operationId: '109'
+      produces:
+        - 'application/json'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+  /file-upload/url:
+    get:
+      tags:
+        - 'file-upload/url'
+      summary: 'Get list of all file-upload/url'
+      description: 'This endpoints uses a get request to get all file-upload/url'
+      operationId: '110'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+
+definitions:
+  languages:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      language_code:
+        type: 'string'
+        $ref: '#/definitions/language_code'
+  language_code:
+    type: 'object'
+    properties:
+      name:
+        type: 'string'
+      code:
+        type: 'string'
+
+  global-metrics:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      unit:
+        type: 'string'
+      uom_id:
+        type: 'integer'
+        format: 'int64'
+      type:
+        type: 'string'
+      createdAt:
+        type: 'string'
+      updatedAt:
+        type: 'string'
+      unit_of_measurement:
+        type: 'string'
+        $ref: '#/definitions/unit_of_measurement'
+
+  metric-types:
+    type: 'object'
+    properties:
+      flag:
+        type: 'boolean'
+      details:
+        type: 'string'
+        $ref: '#/definitions/details'
+  details:
+    type: 'object'
+    properties:
+      code:
+        type: 'string'
+      description:
+        type: 'string'
+
+  campaign:
+    type: array
+    items:
+      type: 'object'
+      properties:
+        id:
+          type: 'integer'
+          format: 'int64'
+        name:
+          type: 'string'
+        goal_metric:
+          type: 'string'
+        goal_value:
+          type: 'integer'
+          format: 'int64'
+        start_date:
+          type: 'string'
+        end_date:
+          type: 'string'
+        duration:
+          type: 'integer'
+          format: 'int64'
+        company_id:
+          type: 'integer'
+          format: 'int64'
+        configs:
+          type: 'string'
+          $ref: '#/definitions/configs'
+
+  configs:
+    type: 'object'
+    properties:
+      description:
+        type: 'string'
+      banner_image:
+        type: 'string'
+      action_summary:
+        type: 'string'
+      campaign_header:
+        type: 'string'
+      banner_video_link:
+        type: 'string'
+      personal_impact_text:
+        type: 'string'
+
+  impacts_mapping_list:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      company_company_id:
+        type: 'integer'
+        format: 'int64'
+      actuals_list:
+        type: array
+        items:
+          type: integer
+          format: 'int64'
+      equivalence_list:
+        type: array
+        items:
+          type: integer
+          format: 'int64'
+      unit_system:
+        type: 'string'
+      createdAt:
+        type: 'string'
+      updatedAt:
+        type: 'string'
+
+  products_list:
+    type: 'object'
+    properties:
+      product_id:
+        type: 'integer'
+        format: 'int64'
+      image:
+        type: 'object'
+        $ref: '#/definitions/multi_language'
+      description:
+        type: 'object'
+        $ref: '#/definitions/multi_language'
+      company_company_id:
+        type: 'integer'
+        format: 'int64'
+      deleted_flag:
+        type: 'boolean'
+      category:
+        type: 'string'
+      company_attribute_set_id:
+        type: 'integer'
+        format: 'int64'
+      attribute_values:
+        type: 'integer'
+        format: 'int64'
+      metric_values:
+        type: 'integer'
+        format: 'int64'
+      sustainability_attribute_visibility_grouping_id:
+        type: 'integer'
+        format: 'int64'
+      composition_ids:
+        type: array
+        items:
+          type: integer
+          format: 'int64'
+      sustainability_attribute_values:
+        type: 'object'
+
+      product_configuration_set_id:
+        type: 'integer'
+        format: 'int64'
+      createdAt:
+        type: 'string'
+      updatedAt:
+        type: 'string'
+      product_name:
+        $ref: '#/definitions/multi_language'
+  products_list_Post:
+    type: array
+    items:
+      type: 'object'
+      properties:
+        image:
+          type: 'object'
+          $ref: '#/definitions/multi_language'
+        description:
+          type: 'object'
+          $ref: '#/definitions/multi_language'
+        company_company_id:
+          type: 'integer'
+          format: 'int64'
+        deleted_flag:
+          type: 'boolean'
+        category:
+          type: 'string'
+        company_attribute_set_id:
+          type: 'integer'
+          format: 'int64'
+        attribute_values:
+          type: 'integer'
+          format: 'int64'
+        metric_values:
+          type: 'integer'
+          format: 'int64'
+        sustainability_attribute_visibility_grouping_id:
+          type: 'integer'
+          format: 'int64'
+        composition_ids:
+          type: array
+          items:
+            type: integer
+            format: 'int64'
+        sustainability_attribute_values:
+          type: 'object'
+
+        product_configuration_set_id:
+          type: 'integer'
+          format: 'int64'
+
+        product_name:
+          $ref: '#/definitions/multi_language'
+  multi_language:
+    type: 'object'
+    properties:
+      default:
+        type: 'object'
+
+  company:
+    type: array
+    items:
+      type: 'object'
+      properties:
+        company_id:
+          type: 'integer'
+          format: 'int64'
+        company_name:
+          type: 'string'
+        phone:
+          type: 'string'
+        website:
+          type: 'string'
+        deleted_flag:
+          type: 'boolean'
+        last_modified_by:
+          type: 'integer'
+          format: 'int64'
+        last_modified_date:
+          type: 'string'
+        payment_plan_plan_id:
+          type: integer
+          format: 'int64'
+        address:
+          type: 'string'
+        webhook_key:
+          type: 'string'
+        authorization_key:
+          type: 'string'
+        folder_name:
+          type: 'string'
+        webhook_api_credentials:
+          type: 'string'
+        client_type:
+          type: 'string'
+        languages:
+          type: 'object'
+          $ref: '#/definitions/multi_language'
+        client_id:
+          type: 'string'
+        qr_code_domain:
+          type: 'string'
+        company_logo:
+          type: 'string'
+        created_at:
+          type: 'string'
+        updated_at:
+          type: 'string'
+  company_post:
+    type: 'object'
+    properties:
+      company_name:
+        type: 'string'
+      phone:
+        type: 'string'
+      website:
+        type: 'string'
+      deleted_flag:
+        type: 'boolean'
+      last_modified_by:
+        type: 'integer'
+        format: 'int64'
+      last_modified_date:
+        type: 'string'
+      payment_plan_plan_id:
+        type: integer
+        format: 'int64'
+      address:
+        type: 'string'
+      webhook_key:
+        type: 'string'
+      authorization_key:
+        type: 'string'
+      folder_name:
+        type: 'string'
+      webhook_api_credentials:
+        type: 'string'
+      client_type:
+        type: 'string'
+      languages:
+        type: 'object'
+        $ref: '#/definitions/multi_language'
+      client_id:
+        type: 'string'
+      qr_code_domain:
+        type: 'string'
+      company_logo:
+        type: 'string'
+
+  custom_metrics:
+    type: 'object'
+    properties:
+      actuals_id:
+        type: 'integer'
+        format: 'int64'
+      company_id:
+        type: 'string'
+      description_text:
+        type: 'object'
+        $ref: '#/definitions/multi_language'
+      tooltip_text:
+        type: 'object'
+        $ref: '#/definitions/multi_language'
+      image_name:
+        type: 'object'
+        $ref: '#/definitions/multi_language'
+      heading_text:
+        type: 'object'
+        $ref: '#/definitions/multi_language'
+      created_at:
+        type: 'string'
+      updated_at:
+        type: 'string'
+      actual:
+        type: 'object'
+        $ref: '#/definitions/actual'
+  actual:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      name:
+        type: 'string'
+
+  widget-types:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      widget_name:
+        type: 'string'
+      block_header_text:
+        type: 'string'
+      created_at:
+        type: 'string'
+      updated_at:
+        type: 'string'
+
+  widget-themes:
+    type: 'object'
+    properties:
+      theme_name:
+        type: 'string'
+      widget_id:
+        type: 'integer'
+        format: 'int64'
+      block_header_text:
+        type: 'string'
+      theme_image_url:
+        type: 'string'
+      created_at:
+        type: 'string'
+      updated_at:
+        type: 'string'
+      widget-types:
+        type: 'object'
+        $ref: '#/definitions/widget-types'
+
+  widget-component:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      component_name:
+        type: 'string'
+      theme_id:
+        type: 'object'
+        $ref: '#/definitions/theme_id'
+      block_header_text:
+        type: 'string'
+      created_at:
+        type: 'string'
+      updated_at:
+        type: 'string'
+
+  widget_config_question:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      section:
+        type: 'string'
+      input_type:
+        type: 'string'
+      config_level:
+        type: 'string'
+      options:
+        type: array
+        items:
+          type: integer
+          format: 'int64'
+      question_text:
+        type: 'string'
+      question_info:
+        type: 'string'
+      question_name:
+        type: 'string'
+      database_string:
+        type: 'string'
+      createdAt:
+        type: 'string'
+      updatedAt:
+        type: 'string'
+
+  theme_id:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      theme_name:
+        type: 'string'
+
+  company-setup:
+    type: 'object'
+    properties:
+      name:
+        type: 'string'
+      status:
+        type: 'string'
+      payment_plan:
+        type: 'integer'
+        format: 'int64'
+      currency:
+        type: 'integer'
+        format: 'int64'
+      amount:
+        type: 'integer'
+        format: 'int64'
+      intialPayment:
+        type: 'integer'
+        format: 'int64'
+      scheduleB:
+        type: 'string'
+      supplylink:
+        type: 'string'
+      created_at:
+        type: 'string'
+      updated_at:
+        type: 'string'
+
+  product_mapping:
+    type: 'object'
+    properties:
+      external_product_id:
+        type: 'integer'
+        format: 'int64'
+      internal_product_id:
+        type: 'integer'
+        format: 'int64'
+      external_product_name:
+        type: 'object'
+        $ref: '#/definitions/languages'
+      description:
+        type: 'string'
+      external_product_image:
+        type: 'string'
+      created_at:
+        type: 'string'
+      updated_at:
+        type: 'string'
+      product:
+        type: 'object'
+        $ref: '#/definitions/products_list'
+
+  unit_of_measurement:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      measurement_class:
+        type: 'string'
+      measurement_unit:
+        type: 'string'
+      measurement_system:
+        type: 'string'
+      is_default:
+        type: 'boolean'
+      created_at:
+        type: 'string'
+      updated_at:
+        type: 'string'
+
+  enum:
+    type: 'object'
+    properties:
+      flag:
+        type: 'boolean'
+      details:
+        type: 'object'
+        properties:
+          code:
+            type: 'string'
+          description:
+            type: 'string'
+
+  impact_factor_matrix:
+    type: 'object'
+    properties:
+      level:
+        type: 'string'
+      data:
+        type: 'object'
+        properties:
+          entries:
+            type: array
+            items:
+              type: array
+              items:
+                type: integer
+          metric_ids:
+            type: array
+            items:
+              type: integer
+          metric_uoms:
+            type: array
+            items:
+              type: array
+              items:
+                type: integer
+          sustainability_attribute_ids:
+            type: array
+            items:
+              type: string
+      created_at:
+        type: 'string'
+      updated_at:
+        type: 'string'
+      company_id:
+        type: 'integer'
+        format: 'int64'
+
+  sustainability-attribute-set:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      data:
+        type: 'object'
+        properties:
+          attributes:
+            type: 'object'
+            $ref: '#/definitions/attributes'
+  attributes:
+    type: 'object'
+    properties:
+      id:
+        type: 'string'
+      name:
+        type: 'string'
+      level:
+        type: 'string'
+      uom_id:
+        type: 'integer'
+        format: 'int64'
+      children:
+        type: 'object'
+        $ref: '#/definitions/children'
+  children:
+    type: 'object'
+    properties:
+      id:
+        type: 'string'
+      name:
+        type: 'string'
+      level:
+        type: 'string'
+      uom_id:
+        type: 'integer'
+        format: 'int64'
+      description:
+        type: 'string'
+      supply_chain_details:
+        type: 'string'
+
+  blend:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      sustainability_attribute_id:
+        type: 'string'
+      name:
+        type: 'string'
+
+      data:
+        type: 'object'
+        properties:
+          composition:
+            type: array
+            items:
+              type: object
+              properties:
+                children_id_value:
+                  type: integer
+      long_name:
+        type: 'string'
+      description:
+        type: 'string'
+      createdAt:
+        type: 'string'
+      updatedAt:
+        type: 'string'
+      company_id:
+        type: 'integer'
+        format: 'int64'
+
+  product-configuration-set:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int64'
+      company_id:
+        type: 'integer'
+        format: 'int64'
+      name:
+        type: 'string'
+      long_name:
+        type: 'string'
+      description:
+        type: 'string'
+      composition_ids:
+        type: array
+        items:
+          type: integer
+          format: 'int64'
+      sustainability_attribute_visibility_grouping_id:
+        type: 'integer'
+        format: 'int64'
+      product_metric_configuration_ids:
+        type: array
+        items:
+          type: integer
+          format: 'int64'
+      createdAt:
+        type: 'string'
+      updatedAt:
+        type: 'string'
+
+  widgets:
+    type: array
+    items:
+      type: integer
+      format: 'int64'
+
+externalDocs:
+  description: 'Find out more about Green Story'
+  url: 'https://greenstory.ca/'

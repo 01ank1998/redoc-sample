@@ -1,0 +1,124 @@
+swagger: '2.0'
+info:
+  title: 'Weather Backend'
+  description: 'Weather api with cognito authentication'
+  version: '1.0.0'
+
+host: 'localhost:4000'
+basePath: '/v1'
+
+securityDefinitions:
+  authorizationtoken:
+    description: 'Please specify the cognito auth token'
+    name: 'authorizationtoken'
+    type: 'apiKey'
+    in: 'header'
+
+tags:
+  - name: 'Weather'
+    description: 'Operations about weather'
+
+  - name: 'User'
+    description: 'Operations about user'
+
+schemes:
+  - 'http'
+
+security:
+  - authorizationtoken: []
+
+paths:
+  /weather:
+    get:
+      operationId: '1'
+      tags:
+        - 'Weather'
+      summary: 'Fetch weather details'
+      description: 'Get weather details based on city and unit'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'query'
+          name: 'city'
+          description: 'City for which weather details is required'
+          required: true
+          type: 'string'
+        - in: 'query'
+          name: 'unit'
+          description: 'Unit for which weather details is required'
+          required: true
+          type: 'string'
+      responses:
+        200:
+          description: 'Weather fetched successfully'
+        400:
+          description: 'Both city and unit are required parameters'
+      security:
+        - authorizationtoken: []
+
+  /user:
+    post:
+      operationId: '2'
+      tags:
+        - 'User'
+      summary: 'Creates user'
+      description: 'Creates user based on parameters on the provided paramters'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'user'
+          description: 'User details'
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        201:
+          description: 'User created successfully'
+        400:
+          description: 'Both username and password are required parameters'
+      security:
+        - authorizationtoken: []
+
+  /global-sign-out:
+    post:
+      operationId: '3'
+      security:
+        - authorizationtoken: []
+      tags:
+        - 'User'
+      summary: 'Sign out user'
+      description: 'Signs out user from all the devices in which he has logged in'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'user'
+          description: 'username'
+          required: true
+          schema:
+            $ref: '#/definitions/Username'
+      responses:
+        200:
+          description: 'Global sign out success'
+        400:
+          description: 'Username is a required parameter'
+
+definitions:
+  User:
+    type: 'object'
+    required: true
+    properties:
+      Username:
+        type: 'string'
+        example: 'ankith.s@ideacrestsolutions.com'
+      Password:
+        type: 'string'
+        example: '12345678'
+        minimum: 8
+  Username:
+    type: 'object'
+    properties:
+      Username:
+        type: 'string'
+        example: 'ankith.s@ideacrestsolutions.com'

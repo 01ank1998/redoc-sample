@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>redoc try demo</title>
-</head>
-<body>
-  <div id="redoc-container"></div>
-  <script src="//cdn.jsdelivr.net/npm/redoc@2.0.0-rc.28/bundles/redoc.standalone.min.js"> </script>
-  <script src="dist/try.js"></script>
-  <script>
-    initTry(`https://petstore.swagger.io/v2/swagger.json`)
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>redoc try demo</title>
+  </head>
+  <body>
+    <div id="redoc-container"></div>
+    <script src="//cdn.jsdelivr.net/npm/redoc@2.0.0-rc.28/bundles/redoc.standalone.min.js"></script>
+    <script src="try.js"></script>
+    <script>
+      initTry({
+        openApi: './greenstory.yaml',
+        tryText: `try it`, // Try button text
+      });
+    </script>
+  </body>
 </html>

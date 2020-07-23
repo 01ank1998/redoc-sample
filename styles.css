@@ -1,0 +1,59 @@
+.swagger-ui .opblock .opblock-section-header > label {
+  display: block !important;
+}
+
+.swagger-ui table tbody tr td {
+  vertical-align: unset !important;
+}
+
+td.parameters-col_name {
+  max-width: 6em !important;
+  overflow-x: auto;
+}
+
+.parameters-col_description {
+  padding-left: 10px !important;
+}
+
+.responses-table {
+  display: none;
+}
+
+.live-responses-table {
+  display: block;
+}
+
+.responses-inner > div > h4 {
+  display: none !important;
+}
+
+.opblock-summary-method {
+  display: none;
+}
+
+.opblock-summary-path {
+  display: none !important;
+}
+
+.model-box {
+  width: 70% !important;
+  overflow: auto !important;
+}
+
+.opblock-get {
+  background: #e9f9eb !important;
+  border-color: #6bbd5b !important;
+}
+
+.opblock-summary-get {
+  border-color: #6bbd5b !important;
+}
+
+.opblock-post {
+  background: #eaf2fa !important;
+  border-color: #378fb2 !important;
+}
+
+.opblock-summary-post {
+  border-color: #378fb2 !important;
+}
